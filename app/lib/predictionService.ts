@@ -46,7 +46,7 @@ export function savePrediction(
   const predictions = getPredictions();
   
   const lastPrice = forecastResult.predictedPrices[forecastResult.predictedPrices.length - 1].price;
-  const currentPrice = stockData.currentPrice ?? 0;
+  const currentPrice = stockData?.currentPrice ?? stockData?.price ?? 0;
   const change = ((lastPrice / currentPrice) - 1) * 100;
   
   const newPrediction: SavedPrediction = {
